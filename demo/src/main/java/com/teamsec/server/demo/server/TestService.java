@@ -34,6 +34,10 @@ public class TestService {
 		return foodRepository.findById(id);
 	}
 
+	public Food otherFoodById(Long id) {
+		return foodRepository.findById(id);
+	}
+
 	public Message findMessageById(Long id) {
 		return messageRepository.findById(id).get();
 	}

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.teamsec.server.demo.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -13,17 +10,13 @@ import org.springframework.stereotype.Component;
 
 import com.teamsec.server.demo.config.DataSourceContextHolder;
 
-/**
- * @author admin
- *
- */
 @Aspect
 @Component
 public class DynamicDataSourceAspect {
 	//
 	private static final Logger log = LoggerFactory.getLogger(DynamicDataSourceAspect.class);
 
-	@Pointcut("execution(* com.teamsec.server.demo..*.*(..))")
+	@Pointcut("execution(* com.teamsec.server.demo.server..*.*(..))")
 	private void aspect() {
 	}
 
@@ -33,10 +26,10 @@ public class DynamicDataSourceAspect {
 
 		if (method.startsWith("find") || method.startsWith("select") || method.startsWith("query")
 				|| method.startsWith("search")) {
-			DataSourceContextHolder.setDataSource("slave");
+			DataSourceContextHolder.setDataSource("slaveDataSource");
 			log.info("switch to slave datasource...");
 		} else {
-			DataSourceContextHolder.setDataSource("master");
+			DataSourceContextHolder.setDataSource("masterDataSource");
 			log.info("switch to master datasource...");
 		}
 

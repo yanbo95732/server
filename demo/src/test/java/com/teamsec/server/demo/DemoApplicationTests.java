@@ -22,7 +22,8 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		Food food = testService.findFoodById(1L);
+		// Food food = testService.findFoodById(1L);
+		Food food = testService.otherFoodById(1L);
 		System.out.println(food);
 	}
 

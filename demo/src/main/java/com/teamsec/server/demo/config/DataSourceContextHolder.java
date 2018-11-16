@@ -16,8 +16,7 @@ public class DataSourceContextHolder {
 
 	public static String getDataSource() {
 		String lookUpKey = holder.get();
-		System.out.println("---------   " + lookUpKey);
-		return lookUpKey == null ? "master" : lookUpKey;
+		return lookUpKey == null ? "masterDataSource" : lookUpKey;
 	}
 
 	public static void clear() {
